@@ -1,3 +1,3 @@
-## Configueación de Dwm
+## Configuración de Dwm
 
 ## Parches
