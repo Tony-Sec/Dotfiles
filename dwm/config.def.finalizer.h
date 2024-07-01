@@ -23,8 +23,8 @@ static const unsigned int maxhtab          = 200;  /* tab menu height */
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static const char *fonts[]               = { "monospace:size=10" };
-static const char dmenufont[]            = "monospace:size=10";
+static const char *fonts[]               = { "JetBrains Mono:pixelsize=35", "SymbolsNerdFont:size=12","NotoColorEmoji:pixelsize=40:antialias=true:autohint=true" };//<------------------------
+static const char dmenufont[]            = "monospace:size=11"; //<------------------------
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -110,7 +110,7 @@ static char *colors[][ColCount] = {
  */
 static char *tagicons[][NUMTAGS] =
 {
-	[DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+	[DEFAULT_TAGS]        = { "󰣇", "", "", "",  "5", "6", "7", "8", "9" }, //<------------------------
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -185,7 +185,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod4Mask //<------------------------
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -220,8 +220,13 @@ static const char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
 
 static const Key keys[] = {
 	/* modifier                     key            function                argument */
+	{ MODKEY|ShiftMask,             XK_q,      	quit,           	{0} },		//<------------------------
+	{ MODKEY|ShiftMask,		XK_r,     	quit,           	{1} }, 		//<------------------------
+	{ MODKEY,             		XK_Return,     spawn,                  {.v = termcmd } }, //<------------------------
+	{ MODKEY|ControlMask,           XK_Return,     zoom,                   {0} }, 		//<------------------------
+	{ MODKEY,	             	XK_q,          killclient,             {0} }, 		//<------------------------
+	{ MODKEY,             		XK_F5,         xrdb,                   {.v = NULL } }, //<------------------------
 	{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
 	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
@@ -231,12 +236,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,          incnmaster,             {.i = -1 } },
 	{ MODKEY,                       XK_h,          setmfact,               {.f = -0.05} },
 	{ MODKEY,                       XK_l,          setmfact,               {.f = +0.05} },
-	{ MODKEY,                       XK_Return,     zoom,                   {0} },
-	{ Mod1Mask,                     XK_Tab,        alttabstart,            {0} },
+	{ MODKEY,                    	XK_Tab,        alttabstart,            {0} },
 	{ MODKEY|ControlMask,           XK_z,          showhideclient,         {0} },
-	{ MODKEY|ShiftMask,             XK_c,          killclient,             {0} },
 	{ MODKEY|ShiftMask,             XK_q,          quit,                   {0} },
-	{ MODKEY|ShiftMask,             XK_F5,         xrdb,                   {.v = NULL } },
 	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} },
