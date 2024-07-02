@@ -96,9 +96,55 @@ unsigned int tabspaces = 4;
 /* bg opacity */
 float alpha = 0.8;
 
+//Pywal
+#include "/home/zayk/.config/pywal/colors-wal-st.h"
+
 /* Terminal colors (16 first used in escape sequence) */
+
+
+//Default color scheme
+/*
 static const char *colorname[] = {
-	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
+	// 8 normal colors
+	"black",
+	"red3",
+	"green3",
+	"yellow3",
+	"blue2",
+	"magenta3",
+	"cyan3",
+	"gray90",
+
+	// 8 bright colors 
+	"gray50",
+	"red",
+	"green",
+	"yellow",
+	"#5c5cff",
+	"magenta",
+	"cyan",
+	"white",
+
+	[255] = 0,
+
+	// more colors can be added after 255 to use with DefaultXX 
+	"#cccccc",
+	"#555555",
+	"gray90", // default foreground colour
+	"black", // default background colour 
+};
+
+
+unsigned int defaultfg = 258;
+unsigned int defaultbg = 259;
+unsigned int defaultcs = 256;
+static unsigned int defaultrcs = 257;
+*/
+
+//Nord color scheme
+/*
+static const char *colorname[] = {
+	"#282828", // hard contrast: #1d2021 / soft contrast: #32302f 
 	"#cc241d",
 	"#98971a",
 	"#d79921",
@@ -115,22 +161,24 @@ static const char *colorname[] = {
 	"#8ec07c",
 	"#ebdbb2",
 	[255] = 0,
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#add8e6", /* 256 -> cursor */
-	"#555555", /* 257 -> rev cursor*/
-	"#282828", /* 258 -> bg */
-	"#ebdbb2", /* 259 -> fg */
+	// more colors can be added after 255 to use with DefaultXX 
+	"#add8e6", // 256 -> cursor 
+	"#555555", // 257 -> rev cursor
+	"#282828", // 258 -> bg 
+	"#ebdbb2", // 259 -> fg 
 };
+*/
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
- */
+ 
 unsigned int defaultfg = 259;
 unsigned int defaultbg = 258;
 unsigned int defaultcs = 256;
 unsigned int defaultrcs = 257;
 unsigned int background = 258;
+*/
 
 /*
  * Default shape of cursor
@@ -348,9 +396,9 @@ static Key key[] = {
 	{ XK_Delete,        ControlMask,    "\033[3;5~",    +1,    0},
 	{ XK_Delete,        ShiftMask,      "\033[2K",      -1,    0},
 	{ XK_Delete,        ShiftMask,      "\033[3;2~",    +1,    0},
-//{ XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0},
-//{ XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
-{ XK_KP_Delete,     XK_ANY_MOD,     "\033[C\177",    0,    0},
+{ XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0},
+{ XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
+//{ XK_KP_Delete,     XK_ANY_MOD,     "\033[C\177",    0,    0},
 	{ XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
 	{ XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
 	{ XK_Home,          ShiftMask,      "\033[2J",       0,   -1},
