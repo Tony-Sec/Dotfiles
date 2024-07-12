@@ -1,3 +1,8 @@
-## Configuración de Dwm
+#Paqutes Necesarios
+
+Pywal
+
+
+## Dotfiles
 
 ## Parches
