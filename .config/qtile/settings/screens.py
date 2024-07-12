@@ -331,3 +331,37 @@ screens = [
         right=bar.Gap(18),
     ),
 ]
+
+''' Barra Opcional
+screens = [
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(),
+                widget.Prompt(),
+                widget.WindowName(),
+                widget.Chord(
+                    chords_colors={
+                        "launch": ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                widget.Systray(),
+                widget.TextBox("◀", fontsize=95, padding=-4, foreground=colors[2], background="#0f0d1c"),
+                widget.CurrentLayout(background=colors[2]),
+                widget.TextBox("◀", fontsize=95, padding=-4, foreground=colors[1], background=colors[2]),
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p", background=colors[1]),
+                widget.TextBox("◀", fontsize=95, padding=-4, foreground=colors[0], background=colors[1]),
+                widget.QuickExit(background=colors[0]),
+            ],
+            54,
+            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+        ),
+        # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
+        # By default we handle these events delayed to already improve performance, however your system might still be struggling
+        # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
+        # x11_drag_polling_rate = 60,
+    ),
+]
+'''
