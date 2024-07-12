@@ -1,4 +1,4 @@
-#Paqutes Necesarios
+# Paqutes Necesarios
 
 Pywal
 
