@@ -3,10 +3,6 @@ from libqtile import widget ,qtile, bar
 from .colors import colors,ColorA,ColorB,ColorC,ColorD,ColorE,ColorF,ColorG,ColorH,ColorI,ColorZ
 
 
-
-
-
-
 ### Mouse_callback functions
 def open_pavu():
     qtile.cmd_spawn("pavucontrol")
