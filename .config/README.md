@@ -1,7 +1,8 @@
 # Paquetes Necesarios
 
 Pywal
-pythin-psutils
+python-psutils
+xdotool
 
 ## Dotfiles
 
