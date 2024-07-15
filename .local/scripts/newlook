@@ -1,0 +1,17 @@
+#!/bin/bash
+
+wal -c
+
+#wallpaper_nitrogen=$(grep 'file=' ~/.config/nitrogen/bg-saved.cfg | cut -d'=' -f2)
+wallpaper_feh=$(find ~/Imágenes/Wallpapers/ -type f -name "*.jpg" -o -name "*.png" | shuf -n 1)
+
+# Set Wallpaper
+#xwallpaper --output Virtual1 --center $wallpaper_feh
+feh --bg-center $wallpaper_feh
+#exec nitrogen --restore &
+
+# Color Scheme
+wal -i $wallpaper_feh
+
+# Reiniciar barra
+#xdotool key super+F5
