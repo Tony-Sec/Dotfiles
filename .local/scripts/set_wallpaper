@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Directorio de imágenes
+IMAGE_DIR="$HOME/Imágenes/Wallpapers"
+# Seleccionar una imagen aleatoria
+RANDOM_IMAGE=$(find "$IMAGE_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | shuf -n 1)
+
+########Pywal
+#Delete previous colors
+wal -c
+
+# -n tells `wal` to skip setting the wallpaper.
+wal -i $RANDOM_IMAGE -n
+
+
+# We grab the wallpaper location from wal's
+echo "$RANDOM_IMAGE" > "${HOME}/.cache/wal/wal"
+
+sleep 0.2
+# Establecer la imagen como fondo de pantalla con feh, centrado
+#feh --bg-max "$RANDOM_IMAGE"
+feh --bg-fill "$(< "${HOME}/.cache/wal/wal")"
+
+
+

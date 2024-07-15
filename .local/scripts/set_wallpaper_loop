@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Directorio de imágenes
+IMAGE_DIR="$HOME/Imágenes/PUTAS"
+
+# Bucle infinito
+while true; do
+    # Seleccionar una imagen aleatoria
+    RANDOM_IMAGE=$(find "$IMAGE_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | shuf -n 1)
+    
+    # Establecer la imagen como fondo de pantalla con feh, centrado
+    feh --bg-max "$RANDOM_IMAGE"
+    
+    # Esperar 30 segundos antes de cambiar la imagen de nuevo
+    sleep 15
+done
